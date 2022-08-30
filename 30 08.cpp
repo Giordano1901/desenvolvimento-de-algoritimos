@@ -1,9 +1,9 @@
 #include <iostream>
-#include <locale.h>
 #include <stdio.h>
+#include <stdlib.h>
 #include <windows.h>
 #include <conio.h>
-#include <stdlib.h>
+#include <locale.h>
 
 void gotoxy(int x, int y)
 {
@@ -15,8 +15,9 @@ main(){
 	/*======================
 	Declaração de Variaveis
 	======================*/
-	char nome [50], endereco [50], complemento [30], cidade [20], estado [20];
-	int opcao, cep, nr, idade;
+	int ncadastro, opcao, i, cep, nr, idade;
+	float num = 0;
+	char cadastrados[ncadastro][50], endereco[ncadastro][50], complemento[ncadastro][30], cidade[ncadastro][20], estado[ncadastro][20];
 	//======================
 	do
 	{
@@ -38,19 +39,50 @@ main(){
 		printf("3 - Alterar");
 		gotoxy(1,11);
 		printf("4 - Sair");
-		
-		
-		scanf("opcao");
+		gotoxy(1,13);
+		printf("Selecione uma opção: ");
+		scanf("%d",&opcao);
 		system("cls");
-		if (opcao = 1)
+		if (opcao==1)
 		{
-			printf("Hello World");
+			gotoxy(1,1);
+			printf("Selecione a quantidade de pessoas a serem cadastradas: ");
+			scanf("%d",&ncadastro);
+			system("cls");
+			for(i=1; i<=ncadastro; i++)
+			{
+				gotoxy(1,1);
+				printf("Insira o nome da %d° pessoa: ",i);
+				scanf("%s",&cadastrados[i]);
+			}
+			system("cls");
+			printf("Ficha cadastro");
+			gotoxy(1,10);
 			system("pause");
 			system("cls");
-		}else
+		}
+		else
 		{
+			if (opcao==2)
+			{
+				gotoxy(1,1);
+				printf("2");
+				gotoxy(1,3);
+				system("pause");
+				system("cls");
+			}
+			else
+			{
+				if (opcao==3)
+				{
+					gotoxy(1,1);
+					printf("3");
+					gotoxy(1,3);
+					system("pause");
+					system("cls");
+				}
+			}
 		}
 	}
-	while (opcao != 5);
-	
+	while (opcao!=4);
 }
